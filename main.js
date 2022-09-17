@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
         else {
             console.log("Success..");
         }
-
+        // logic of create element in todo list
         const task_el = document.createElement('div');
         task_el.classList.add('task');
 
@@ -28,9 +28,9 @@ window.addEventListener('load', () => {
         task_input_ele.classList.add('text');
         task_input_ele.type = "text";
         task_input_ele.value = task_val;
-        task_input_ele.setAttribute("readonly","readonly");
+        task_input_ele.setAttribute("readonly", "readonly");
 
-    // adding content and content box to the div
+        // adding content and content box to the div
         task_el.appendChild(task_content_ele);
         task_content_ele.appendChild(task_input_ele);
 
@@ -50,9 +50,28 @@ window.addEventListener('load', () => {
         task_action_ele.appendChild(button_delete);
 
         task_el.appendChild(task_action_ele);
-        
+
         list_el.appendChild(task_el);
 
+
+        input.value = "";
+        // logic of edit one
+        button_edit.addEventListener('click', () => {
+            console.log('edit')
+
+            if (button_edit.innerText == "EDIT") {
+                task_input_ele.removeAttribute("readonly");
+                task_input_ele.focus();
+                button_edit.innerText = "save";
+
+            } else {
+                // console.log('else')
+                task_input_ele.setAttribute('readonly', 'readonly');
+                button_edit.innerText = "edit";
+
+            }
+
+        });
 
 
     });
