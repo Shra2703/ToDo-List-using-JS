@@ -73,6 +73,11 @@ window.addEventListener('load', () => {
 
         });
 
+        // logic of delete one
+        button_delete.addEventListener('click', () => {
+            list_el.removeChild(task_el);
+        });
+
 
     });
 });
